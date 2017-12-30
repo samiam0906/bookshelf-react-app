@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import './App.css';
+import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import BookList from './components/BookList';
 import BookDetail from './components/BookDetail';
@@ -22,12 +23,20 @@ class App extends Component {
     const getUrl = url + term + `&key=${API_KEY}`;
     console.log(getUrl);
 
-    fetch(getUrl)
-      .then(response => response.json())
-      .then(bookData => {
-        this.setState({ books: [...bookData.items] })
+    // get request to display books based on search term
+    axios.get(getUrl)
+      .then(response => {
+        this.setState({ books: [...response.data.items] })
         console.log('State: ', this.state.books)
       })
+      .catch(err => console.log(err))
+
+    // fetch(getUrl)
+    //   .then(response => response.json())
+    //   .then(bookData => {
+    //     this.setState({ books: [...bookData.items] })
+    //     console.log('State: ', this.state.books)
+    //   })
   }
 
   render() {
@@ -39,7 +48,7 @@ class App extends Component {
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
       )
     }
-    
+
     return (
       <div>
 
