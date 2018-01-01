@@ -3,7 +3,8 @@ import BookListItem from './BookListItem';
 
 const BookList = (props) => {
   console.log("Props are: ", props);
-  console.log("Book props are: ", props.books)
+  console.log("Book props are: ", props.books);
+  const currentPath = window.location.pathname;
 
   const bookItems = props.books.map((book) => {
     return <BookListItem key={book.id} book={book} />

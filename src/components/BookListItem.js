@@ -19,12 +19,12 @@ const BookListItem = ({ book }) => {
         </div>
 
         <div className="media-left">
-          <Link to="/book-detail"><img className="media-object" alt="Book thumbnail" src={imageUrl} /></Link>
+          <Link to={{ pathname: `/book-detail/${book.volumeInfo.title}/${book.id}`, state: { bookDetail: book} }}><img className="media-object" alt="Book thumbnail" src={imageUrl} /></Link>
         </div>
 
         <div className="media-body">
           <div className="media-heading">
-            <Link to="/book-detail">Title: {book.volumeInfo.title}</Link>
+            <Link to={{ pathname: `/book-detail/${book.volumeInfo.title}/${book.id}`, state: { bookDetail: book} }}>Title: {book.volumeInfo.title}</Link>
           </div>
           <p>{textSnippet}</p>
         </div>

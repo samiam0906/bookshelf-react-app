@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "express": "^4.16.2",
+    "history": "^4.7.2",
     "knex": "^0.14.2",
     "pg": "^7.4.0",
     "react": "^16.2.0",

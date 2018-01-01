@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
+import { createBrowserHistory, createHashHistory, createMemoryHistory } from 'history';
 import './App.css';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
@@ -63,7 +64,7 @@ class App extends Component {
                 </div>
               )} />
 
-              <Route path="/book-detail" component={BookDetail} />
+              <Route path="/book-detail/:title/:key" component={BookDetail} />
             </Switch>
           </div>
 

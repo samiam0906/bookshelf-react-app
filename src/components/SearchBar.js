@@ -24,12 +24,11 @@ class SearchBar extends Component {
     term = e.target.searchTerm.value
     this.props.onSearchSubmit(term)
     this.setState({ firedRedirect: true })
-    console.log(this.state.firedRedirect)
-    console.log('This is working: ', this.state.fireRedirect)
+    console.log('Redirect: ', this.state.firedRedirect)
   }
 
   render() {
-    const currentPath = window.location.pathname
+    const currentPath = window.location.pathname;
     if (this.state.firedRedirect && currentPath !== '/book-list') {
       return (
         <Redirect to="/book-list"/>
